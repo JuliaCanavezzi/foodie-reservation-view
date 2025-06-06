@@ -1,4 +1,5 @@
-import { Plus, Calendar, Clock, Users, FileText, X } from "lucide-react";
+
+import { Plus, Calendar, Clock, Users, FileText, X, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -39,9 +40,15 @@ const Index = () => {
       {/* Top Navbar */}
       <nav className="bg-white border-b border-border px-4 py-3 shadow-sm">
         <div className="flex items-center justify-between">
-          <Button variant="ghost" className="text-sm font-medium text-foreground hover:bg-accent">
-            My Reservations
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button variant="ghost" className="text-sm font-medium text-foreground hover:bg-accent">
+              My Reservations
+            </Button>
+            <Button variant="ghost" size="sm" className="text-sm text-muted-foreground hover:bg-accent">
+              <Settings className="w-4 h-4 mr-1" />
+              Settings
+            </Button>
+          </div>
           
           <div className="flex-1"></div>
           
@@ -77,8 +84,8 @@ const Index = () => {
           {/* Existing Reservations */}
           {reservations.map((reservation) => (
             <Card key={reservation.id} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-4 space-y-3">
-                <div className="space-y-2">
+              <CardContent className="p-4 relative h-40">
+                <div className="space-y-2 pb-8">
                   <div className="flex items-center text-xs text-muted-foreground">
                     <Calendar className="w-3 h-3 mr-1" />
                     <span>{reservation.date}</span>
@@ -105,9 +112,9 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="w-full text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground"
+                  className="absolute bottom-2 right-2 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground h-6 px-2 text-xs"
                 >
-                  <X className="w-3 h-3 mr-1" />
+                  <X className="w-2 h-2 mr-1" />
                   Cancel
                 </Button>
               </CardContent>
