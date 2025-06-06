@@ -1,4 +1,3 @@
-
 import { Plus, Calendar, Clock, Users, FileText, X, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -112,9 +111,9 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="absolute bottom-2 right-2 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground h-6 px-2 text-xs"
+                  className="absolute bottom-2 right-2 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground h-7 px-3 text-xs"
                 >
-                  <X className="w-2 h-2 mr-1" />
+                  <X className="w-3 h-3 mr-1" />
                   Cancel
                 </Button>
               </CardContent>
