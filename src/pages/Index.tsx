@@ -1,6 +1,7 @@
 import { Plus, Calendar, Clock, Users, FileText, X, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+
 const Index = () => {
   const reservations = [{
     id: 1,
@@ -27,7 +28,8 @@ const Index = () => {
     people: 3,
     notes: "Business dinner"
   }];
-  return <div className="min-h-screen bg-background">
+  return (
+    <div className="min-h-screen bg-background">
       {/* Top Navbar */}
       <nav className="border-b border-border px-4 py-3 shadow-sm bg-rose-950">
         <div className="flex items-center justify-between">
@@ -62,20 +64,21 @@ const Index = () => {
         <div className="grid grid-cols-2 gap-3">
           {/* Make a Reservation Card */}
           <Card className="border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 transition-colors cursor-pointer">
-            <CardContent className="flex flex-col items-center justify-center p-6 h-40">
-              <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mb-3">
-                <Plus className="w-5 h-5 text-primary" />
+            <CardContent className="flex flex-col items-center justify-center p-4 h-28">
+              <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+                <Plus className="w-4 h-4 text-primary" />
               </div>
-              <span className="text-sm font-medium text-foreground text-center">
+              <span className="text-xs font-medium text-foreground text-center">
                 Make a Reservation
               </span>
             </CardContent>
           </Card>
 
           {/* Existing Reservations */}
-          {reservations.map(reservation => <Card key={reservation.id} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-4 relative h-40">
-                <div className="space-y-2 pb-8">
+          {reservations.map(reservation => (
+            <Card key={reservation.id} className="hover:shadow-md transition-shadow">
+              <CardContent className="p-3 relative h-28">
+                <div className="space-y-1 pb-6">
                   <div className="flex items-center text-xs text-muted-foreground">
                     <Calendar className="w-3 h-3 mr-1" />
                     <span className="text-stone-950">{reservation.date}</span>
@@ -91,20 +94,25 @@ const Index = () => {
                     <span className="text-zinc-950">{reservation.people} people</span>
                   </div>
                   
-                  {reservation.notes && <div className="flex items-start text-xs text-muted-foreground">
+                  {reservation.notes && (
+                    <div className="flex items-start text-xs text-muted-foreground">
                       <FileText className="w-3 h-3 mr-1 mt-0.5 flex-shrink-0" />
                       <span className="line-clamp-2 text-zinc-950">{reservation.notes}</span>
-                    </div>}
+                    </div>
+                  )}
                 </div>
                 
-                <Button variant="outline" size="sm" className="absolute bottom-2 right-2 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground h-7 px-3 text-xs">
+                <Button variant="outline" size="sm" className="absolute bottom-2 right-2 text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground h-6 px-2 text-xs">
                   <X className="w-3 h-3 mr-1" />
                   Cancel
                 </Button>
               </CardContent>
-            </Card>)}
+            </Card>
+          ))}
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
